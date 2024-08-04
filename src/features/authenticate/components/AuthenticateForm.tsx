@@ -42,14 +42,12 @@ const AuthenticateForm: React.FC = () => {
     } else if ("token" in response) {
       console.log("response:", response);
     } else {
-      console.log("response:", response);
-      console.log("err:", authenticateRequestError);
       setAuthenticateRequestError(response.message);
     }
   };
 
   return (
-    <div className="authenticate-form-container">
+    <div className="form-container authenticate-form">
       <div className="form-header">
         <h2>Login</h2>
       </div>
@@ -77,7 +75,7 @@ const AuthenticateForm: React.FC = () => {
             errorMessage={fieldError.password}
           />
         </div>
-        <div className="form-submit-container">
+        <div className="form-submit">
           <button className="submit-button" type="submit">
             Login
           </button>
@@ -87,10 +85,10 @@ const AuthenticateForm: React.FC = () => {
             </p>
           )}
         </div>
-        <div className="form-footer">
-          Don't have an account? <a href="">Register</a>
-        </div>
       </form>
+      <div className="form-footer">
+        Don't have an account? <a href="/register">Register</a>
+      </div>
     </div>
   );
 };

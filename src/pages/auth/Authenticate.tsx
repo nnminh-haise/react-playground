@@ -2,7 +2,7 @@ import React from "react";
 import AuthenticateForm from "../../features/authenticate/components/AuthenticateForm";
 
 const Authenticate: React.FC = () => {
-  return <AuthenticateForm></AuthenticateForm>;
+  return <AuthenticateForm />;
 };
 
 export default Authenticate;
