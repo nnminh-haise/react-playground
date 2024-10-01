@@ -3,7 +3,7 @@ import "../../assets/style/components/forms/FormInput.css";
 
 type EnumType = Record<string, string>;
 
-export interface FormEnumInputProps<T extends EnumType> {
+export interface FormEnumInputProp<T extends EnumType> {
   id: string;
   enumType: T;
   label: string;
@@ -17,7 +17,7 @@ export const FormEnumInput = <T extends EnumType>({
   label,
   onChange,
   isRequired,
-}: FormEnumInputProps<T>) => {
+}: FormEnumInputProp<T>) => {
   const [selectedValue, setSelectedValue] = useState<T[keyof T] | string>("");
 
   const handleValueChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -38,9 +38,6 @@ export const FormEnumInput = <T extends EnumType>({
         name={id}
         value={selectedValue}
         onChange={handleValueChange}
-        style={{
-          padding: "5px",
-        }}
       >
         <option value="" selected disabled>
           Select {label}

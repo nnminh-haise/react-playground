@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import "../../assets/style/components/forms/FormBase.css";
-import { FormInputProps } from "../../components/forms/types/FormInputProps.interface";
+import { FormInputProp } from "../../components/forms/types/FormInputProp.interface";
 import { FormInput } from "../../components/forms/FormInput";
 import {
   Authenticate,
@@ -25,7 +25,7 @@ export const AuthenticationForm: React.FC = () => {
     event.preventDefault();
   };
 
-  const formInputs: FormInputProps[] = [
+  const formInputs: FormInputProp[] = [
     {
       id: "email",
       label: "Email",

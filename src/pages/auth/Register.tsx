@@ -5,9 +5,9 @@ import { Role } from "./types/Role.enum";
 import { FormInput } from "../../components/forms/FormInput";
 import {
   FormEnumInput,
-  FormEnumInputProps,
+  FormEnumInputProp,
 } from "../../components/forms/FormEnumInput";
-import { FormInputProps } from "../../components/forms/types/FormInputProps.interface";
+import { FormInputProp } from "../../components/forms/types/FormInputProp.interface";
 import {
   GetRegistrationDefaultValue,
   Registration,
@@ -31,7 +31,7 @@ export const RegistrationForm: React.FC = () => {
     event.preventDefault();
   };
 
-  const formInputs: FormInputProps[] = [
+  const formInputs: FormInputProp[] = [
     {
       id: "firstName",
       label: "First name",
@@ -105,8 +105,8 @@ export const RegistrationForm: React.FC = () => {
   ];
 
   const formEnumInputs: (
-    | FormEnumInputProps<typeof Gender>
-    | FormEnumInputProps<typeof Role>
+    | FormEnumInputProp<typeof Gender>
+    | FormEnumInputProp<typeof Role>
   )[] = [
     {
       id: "gender",

@@ -1,7 +1,7 @@
-import { FormInputProps } from "./types/FormInputProps.interface";
 import "../../assets/style/components/forms/FormInput.css";
+import { FormInputProp } from "./types/FormInputProp.interface";
 
-export const FormInput: React.FC<FormInputProps> = (props: FormInputProps) => {
+export const FormInput: React.FC<FormInputProp> = (props: FormInputProp) => {
   return (
     <div className="form-field">
       <label htmlFor={props.id}>
