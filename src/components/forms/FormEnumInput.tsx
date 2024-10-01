@@ -3,7 +3,7 @@ import "../../assets/style/components/forms/FormInput.css";
 
 type EnumType = Record<string, string>;
 
-interface FormEnumInputProps<T extends EnumType> {
+export interface FormEnumInputProps<T extends EnumType> {
   id: string;
   enumType: T;
   label: string;

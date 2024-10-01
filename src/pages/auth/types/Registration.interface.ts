@@ -1,7 +1,7 @@
-import { Gender } from "../../../auth/types/Gender.enum";
-import { Role } from "../../../auth/types/Role.enum";
+import { Gender } from "./Gender.enum";
+import { Role } from "./Role.enum";
 
-export interface TestFormProps {
+export interface Registration {
   firstName: string;
 
   lastName: string;
@@ -19,13 +19,13 @@ export interface TestFormProps {
   role: Role;
 }
 
-export function GetTestFormPropsDefaultValue(): TestFormProps {
+export function GetRegistrationDefaultValue(): Registration {
   return {
     firstName: "",
     lastName: "",
-    email: "example@gmail.com",
-    password: "12345678",
-    age: 10,
+    email: "",
+    password: "",
+    age: 0,
     dateOfBirth: new Date(),
     gender: Gender.MALE,
     role: Role.USER,
