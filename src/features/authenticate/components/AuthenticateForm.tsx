@@ -4,7 +4,7 @@ import { AuthenticateRequest } from "../services/AuthenticateService";
 import { AuthenticatedResponseDto } from "../dtos/AuthenticatedResponse.dto";
 
 import "../../../assets/style/authenticate/AuthenticateForm.css";
-import FormInput from "../../../components/forms/FormInput";
+import FormInput from "../../../components/forms/FormInput-old";
 import { AuthenticateFormErrorDto } from "../dtos/AuthenticateFormError.dto";
 import { AuthenticateRequestErrorDto } from "../dtos/AuthenticateRequestError.dto";
 

@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import FormInput from "../../../components/forms/FormInput";
+import FormInput from "../../../components/forms/FormInput-old";
 import { RegisterRequestDto } from "../dtos/RegisterRequest.dto";
 import GenderInput from "../../../components/forms/GenderInput";
 
