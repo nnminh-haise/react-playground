@@ -1,0 +1,14 @@
+.form-redirect {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form-redirect a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.form-redirect a:hover {
+  text-decoration: underline;
+}

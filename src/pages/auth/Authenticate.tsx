@@ -1,77 +1,47 @@
-import React, { ChangeEvent, useState } from "react";
-import "../../assets/style/components/forms/FormBase.css";
-import { FormInputProp } from "../../components/forms/types/FormInputProp.interface";
-import { FormInput } from "../../components/forms/FormInput";
+import React from "react";
+import "../../assets/style/pages/auth/SharedAuthForm.css";
 import {
-  Authenticate,
-  GetAuthenticateDefaultValue,
+  Authentication,
+  GetAuthenticationDefaultValue,
 } from "./types/Authenticate.interface";
+import { FormBase } from "../../components/forms/FormBase";
 
 export const AuthenticationForm: React.FC = () => {
-  const [form, setForm] = useState<Authenticate>(GetAuthenticateDefaultValue());
-  const [fieldError, setFieldError] = useState<{ [key: string]: string }>({});
-  const [formError, setFormError] = useState("");
-
-  const formUpdateHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
-    setFieldError({ ...fieldError, [event.target.name]: "" });
-    setFormError("");
+  const formSubmitHandler = (form: Authentication) => {
+    console.log("Submitted form:", form);
   };
 
-  const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-
-  const formInputs: FormInputProp[] = [
+  const formInputData: any[] = [
     {
       id: "email",
       label: "Email",
       type: "email",
       placeholder: "example@domain.com",
-      onChange: formUpdateHandler,
       isRequired: true,
-      errorMessage: fieldError["email"],
     },
     {
       id: "password",
       label: "Password",
       type: "password",
       placeholder: "Password",
-      onChange: formUpdateHandler,
-      errorMessage: fieldError["password"],
     },
   ];
 
   return (
-    <div className="form-component">
-      <form className="form-container" onSubmit={formSubmitHandler}>
-        <div className="form-header">
-          <h2>Login</h2>
-        </div>
-        <div className="form-body">
-          {formInputs.map((formInput) => {
-            return (
-              <FormInput
-                key={formInput.id}
-                id={formInput.id}
-                label={formInput.label}
-                type={formInput.type}
-                placeholder={formInput.placeholder}
-                onChange={formInput.onChange}
-                isRequired={formInput.isRequired}
-                errorMessage={formInput.errorMessage}
-              />
-            );
-          })}
-        </div>
-        <div className="form-footer">
-          <button type="submit">Login</button>
-          {formError && <p className="form-error"></p>}
-        </div>
-      </form>
+    <div className="registration-form">
+      <FormBase<Authentication>
+        name="registration"
+        title="Login"
+        formInputs={formInputData}
+        formInitializedObject={GetAuthenticationDefaultValue()}
+        onFormSubmit={formSubmitHandler}
+        submitButtonText="Login"
+        footerChildren={[
+          <div className="form-redirect direct-to-login">
+            Have an account? <a href="/register">Sign up</a>
+          </div>,
+        ]}
+      />
     </div>
   );
 };

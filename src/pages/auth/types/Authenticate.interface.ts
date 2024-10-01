@@ -1,10 +1,10 @@
-export interface Authenticate {
+export interface Authentication {
   email: string;
 
   password: string;
 }
 
-export function GetAuthenticateDefaultValue(): Authenticate {
+export function GetAuthenticationDefaultValue(): Authentication {
   return {
     email: "",
     password: "",

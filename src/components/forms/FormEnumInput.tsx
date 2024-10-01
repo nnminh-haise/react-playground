@@ -7,7 +7,7 @@ export interface FormEnumInputProp<T extends EnumType> {
   id: string;
   enumType: T;
   label: string;
-  onChange: (value: T[keyof T]) => void;
+  onChange?: (value: T[keyof T]) => void;
   isRequired?: boolean;
 }
 
@@ -24,7 +24,9 @@ export const FormEnumInput = <T extends EnumType>({
     event.preventDefault();
     const value = event.target.value as T[keyof T];
     setSelectedValue(value);
-    onChange(value);
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   return (
@@ -39,7 +41,7 @@ export const FormEnumInput = <T extends EnumType>({
         value={selectedValue}
         onChange={handleValueChange}
       >
-        <option value="" selected disabled>
+        <option value="" disabled>
           Select {label}
         </option>
         {Object.values(enumType).map((value) => (
